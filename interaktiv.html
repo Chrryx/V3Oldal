@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interaktív Oldal</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #character {
+      font-size: 30vh;
+      line-height: 30vh;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .message {
+      position: absolute;
+      font-size: 20px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="character" onclick="showMessage()">╚</div>
+
+  <script>
+    function showMessage() {
+      const message = document.createElement("div");
+      message.className = "message";
+      message.textContent = "Hát tesó ezt elhitted";
+
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+
+      const randomX = Math.random() * (screenWidth - 200);
+      const randomY = Math.random() * (screenHeight - 60);
+
+      message.style.left = randomX + "px";
+      message.style.top = randomY + "px";
+
+      document.body.appendChild(message);
+    }
+  </script>
+</body>
+</html>
